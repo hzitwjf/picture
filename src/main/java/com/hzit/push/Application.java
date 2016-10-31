@@ -17,6 +17,13 @@ import javax.servlet.MultipartConfigElement;
 public class Application extends SpringBootServletInitializer {
     @Bean
     public MultipartConfigElement multipartConfigElement(){
+     /**
+     * MultipartConfigElement 这个类构建与所有位置默认的实例。
+     * MultipartConfigFactory类是Spring提供的所有的用于上传文件的类，可以规定其尺寸的值可以使用传统的长值的困扰或使用更具可读性,接受KB或MB的后缀
+     * setMaxFileSize("1024KB") 工厂设置文件的最大尺寸1024KB
+     * setMaxRequestSize("1024KB")工厂设置文件的每次接收最大尺寸1024KB
+     * createMultipartConfig 创建一个新的MultipartConfigElement实例。
+     */
         MultipartConfigFactory multipartConfigFactory=new MultipartConfigFactory();
         multipartConfigFactory.setMaxFileSize("1024KB");
         multipartConfigFactory.setMaxRequestSize("1024KB");
