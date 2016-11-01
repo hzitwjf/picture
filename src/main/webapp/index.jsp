@@ -13,5 +13,6 @@
   <body>
   <a href="pushOneFile">去上传一个文件！</a>
   <a href="pushMoreFile">去上传多个文件！</a>
+  <img src="">
   </body>
 </html>

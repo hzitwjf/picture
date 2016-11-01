@@ -38,7 +38,7 @@ public class FileUploadController {
     }
     @RequestMapping("/batch/upload")
     @ResponseBody
-    public String HandUpload(HttpServletRequest httpServletRequest){
+    public Object HandUpload(HttpServletRequest httpServletRequest){
         return fileUploadServices.handleUploadInfo(httpServletRequest);
     }
 

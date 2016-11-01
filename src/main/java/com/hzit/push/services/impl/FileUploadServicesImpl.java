@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -64,7 +65,8 @@ public class FileUploadServicesImpl implements FileUploadServices {
     }
 
     @Override
-    public String handleUploadInfo(HttpServletRequest httpServletRequest) {
+    public Object handleUploadInfo(HttpServletRequest httpServletRequest) {
+        List list=new ArrayList();
         try {
             //设置编码格式，解决字符串乱码问题
             httpServletRequest.setCharacterEncoding("utf-8");
@@ -74,6 +76,7 @@ public class FileUploadServicesImpl implements FileUploadServices {
             List<MultipartFile> multipartFileList=multipartHttpServletRequest.getFiles("file");
             for (int i=0;i<multipartFileList.size();i++){
                 MultipartFile multipartFile=multipartFileList.get(i);
+                list.add("images/"+multipartFile.getOriginalFilename());
                 //循环遍历list集合，得到文件名
                 String name=multipartFile.getName();
                 //判断上传文件是否是空的
@@ -113,6 +116,6 @@ public class FileUploadServicesImpl implements FileUploadServices {
             e.printStackTrace();
             return "上传失败："+e.getMessage();
         }
-         return "文件已成功上传";
+         return list;
     }
 }

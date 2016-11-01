@@ -1,5 +1,6 @@
 package com.hzit.push.services;
 
+
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,5 +11,5 @@ import javax.servlet.http.HttpServletRequest;
 public interface FileUploadServices {
     String provideUploadInfo();
     String handleUploadInfo(String name, MultipartFile multipartFile, HttpServletRequest httpServletRequest);
-    String handleUploadInfo(HttpServletRequest httpServletRequest);
+    Object handleUploadInfo(HttpServletRequest httpServletRequest);
 }
